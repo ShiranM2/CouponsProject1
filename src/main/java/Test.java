@@ -4,28 +4,16 @@ import db.DatabaseManager;
 import exception.CouponSystemException;
 import facade.*;
 import jobs.CouponExpirationDailyJob;
-//import jobs.CouponExpirationDailyJob;
-
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.List;
 
-/*
- * 1.לבדוק התחברות לא נכונה עם יוזר-לא אמור לתת לבצע דברים
- *בג'וב להוסיף מחיקת רכישות של הקופונים
-
- * להעלות לגיט
- * */
 public class Test {
     public static void testAll() throws Exception {
         System.out.println("---------**********------------------**********--------- START testAll ---------**********------------------**********---------\n");
         DatabaseManager.getInstance().dropCreateStrategy();
         DatabaseManager.getInstance().insertCategories();
 
-//        CouponExpirationDailyJob job1=new CouponExpirationDailyJob();
-//        Thread t1=new Thread(job1);
-//        t1.run();
         System.out.println("---------**********------------------ ClientFacade Testing ------------------**********---------\n");
 
         System.out.println("---------------------------------AdminFacade Testing---------------------------------\n");
@@ -39,7 +27,6 @@ public class Test {
             adminFacade = (AdminFacade) clientFacade;
         } catch (CouponSystemException e) {
             System.out.println(e);
-//                return;
         }
 
         System.out.println("-------2. add new companies-------");
@@ -205,8 +192,6 @@ public class Test {
             }
 
 
-//            customerFacade.purchaseCoupon(3);
-//            customerFacade.purchaseCoupon(4);
 
             System.out.println("-------3. get all the coupons that customer Purchased -------");
             try {
